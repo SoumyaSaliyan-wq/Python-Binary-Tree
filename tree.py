@@ -1,3 +1,5 @@
+# Online Python compiler (interpreter) to run Python online.
+# Write Python 3 code in this online editor and run it.
 
 class TreeNode:
     def __init__(self,value):
@@ -16,10 +18,50 @@ class TreeNode:
                 self.right=TreeNode(value)
             else:
                 self.right.insert(value)
+    ##It prints the deep most left value where we dont have any left the firls value of the traversal will be the last left value
+    def inorder_traversal(self):
+        if self.left:
+            self.left.inorder_traversal()
+        print(self.value)
+        if self.right:
+            self.right.inorder_traversal()
+            
+    def preorder_traversal(self):
+        print(self.value)
+        if self.left:
+            self.left.preorder_traversal()
+        if self.right:
+            self.right.preorder_traversal()
+            
+    def postorder_traversal(self):
+        if self.left:
+            self.left.postorder_traversal()
+        if self.right:
+            self.right.postorder_traversal()
+        print(self.value)
+
+            
                 
 tree=TreeNode(10)
 tree.insert(5)
-tree.insert(5)
-tree.insert(6)
+tree.insert(34)
+tree.insert(3)
+# print(tree.preorder_traversal())
+# 10
+# 5
+# 3
+# 34
+# None
+# print(tree.postorder_traversal())
+# 3
+# 5
+# 34
+# 10
+# None
 
-print(tree.left.right.right.value)
+# print(tree.inorder_traversal())
+# 3
+# 5
+# 10
+# 34
+# None
