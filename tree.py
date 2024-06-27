@@ -40,7 +40,19 @@ class TreeNode:
             self.right.postorder_traversal()
         print(self.value)
 
-            
+    def find(self,value):
+        if value < self.value:
+            if self.left is None:
+                return False
+            else:
+                return self.left.find(value)
+        elif value > self.value:
+            if self.right is None :
+                return False
+            else:
+                return self.right.find(value)
+        else:
+            return True
                 
 tree=TreeNode(10)
 tree.insert(5)
